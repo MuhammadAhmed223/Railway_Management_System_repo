@@ -10,19 +10,7 @@ import Trains.TrainsDatabase;
 
 public class TripsDatabase {
 	
-	public static void AddTrip(Trip t, Database database) throws SQLException {
-		String insert = "INSERT INTO `trips`(`ID`, `Start`, `Destination`, `DepartureTime`, "
-				+ "`ArrivalTime`, `Date`, `BookedSeats`, `Price`, `Driver`, `Train`) VALUES "
-				+ "('"+t.getID()+"','"+t.getStart()+"','"+t.getDestination()+"','"+
-				t.getDepartureTime()+"','"+t.getArrivalTime()+"','"+t.getDate()+"','"+
-				t.getBookedSeats()+"','"+t.getPrice()+"','"+t.getDriver().getID()+"','"+
-				t.getTrain().getID()+"');";
-		database.getStatement().execute(insert);
-		
-		String create = "CREATE TABLE `Trip "+t.getID()+
-				" Passengers` (Passenger int, Tickets int);";
-		database.getStatement().execute(create);
-	}
+	
 	
 	public static int getNextID(Database database) throws SQLException {
 		int id = 0;
